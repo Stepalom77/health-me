@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 4000;
 
 //Import routes
 const usersRoute = require('./server/routes/usersRoutes');
+const profesionalsRoute = require('./server/routes/profesionalsRoutes');
+const macrosRoute = require('./server/routes/macrosRoutes');
 
 //Middlewares
 app.use(express.urlencoded({extended: true}));
@@ -17,6 +19,8 @@ app.use(cors());
 
 //Routes
 app.use('/api/v1', usersRoute);
+app.use('/api/v1', profesionalsRoute);
+app.use('/api/v1', macrosRoute);
 
 app.get('/', (req, res) => {
     res.send('Server up & running ✅');

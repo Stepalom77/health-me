@@ -62,7 +62,7 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     let userId = req.params.id;
-    let {first_name, last_name, username, email, password} = req.body;
+    let {first_name, last_name, username, email, password, address, phone_number} = req.body;
     try {
       let userToUpdate = await users.findByPk(userId)
       userToUpdate = await users.update({
@@ -70,7 +70,9 @@ const updateUser = async (req, res) => {
           last_name: last_name,
           username: username,
           email: email,
-          password: password
+          password: password,
+          address:address,
+          phone_number:phone_number
       },
         {where: {
           id: userId
