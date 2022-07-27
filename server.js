@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 4000;
 const usersRoute = require('./server/routes/usersRoutes');
 const profesionalsRoute = require('./server/routes/profesionalsRoutes');
 const macrosRoute = require('./server/routes/macrosRoutes');
+const foodRoute = require('./server/routes/foodRoutes');
 
 //Middlewares
 app.use(express.urlencoded({extended: true}));
@@ -21,7 +22,7 @@ app.use(cors());
 app.use('/api/v1', usersRoute);
 app.use('/api/v1', profesionalsRoute);
 app.use('/api/v1', macrosRoute);
-
+app.use('/api/v1', foodRoute);
 app.get('/', (req, res) => {
     res.send('Server up & running ✅');
   })
